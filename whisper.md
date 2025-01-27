@@ -1,6 +1,7 @@
 # 70 Stunden-Projekt: Aufsetzen des Whipser-Transkriptionstools von OpenAI für das Schlaflabor
 
-27.01: 10:30 - 12:00; 12:30 - 13:15, 15:20
+27.01: 10:30 - 12:00; 12:30 - 13:15, 15:20 - 17:30
+--> Für heute sind wir fertig. Morgen gehts dann daran rauszufinden, warum das nicht richtig funktioniert.
 
 
 Ressourcen: https://openai.com/index/whisper/
