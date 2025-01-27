@@ -59,3 +59,37 @@ Das heißt, noScribe aus Luzern und das Zeug aus Zürich werden als Inspiration 
 - Mehrere Skripts (DE, EN, MIX) für Sprachversionen erstellen, um Genauigkeit zu erhöhen und dann je nach Sprache auswählen? 
 - Die Audiodatein werden nicht im selben Ordner wie das Skript liegen, es muss also der Pfad ordentlich angegeben werden. &rarr; in diesem Kontext wäre es hilfreich, herauszufinden, ob es möglich ist, dass das Skript immer die "neuste" Audio aufgreift
 - gff. ist das mit der neusten Audio noch zu hoch gestochen resp. interessant für später. Um zu testen, ob das ganze läuft, reicht ggf. auch einfach ein "Basic Skript"
+
+Ergebnis, wenn Whisper geladen:
+Building wheels for collected packages: openai-whisper
+  Building wheel for openai-whisper (pyproject.toml) ... done
+  Created wheel for openai-whisper: filename=openai_whisper-20240930-py3-none-any.whl size=813013 sha256=ab76fb4f2dc1a1983aecc9b23e951cfae289d6842855553c884963ec30607dad
+  Stored in directory: C:\Users\lucid\AppData\Local\Temp\pip-ephem-wheel-cache-r5vqs6b9\wheels\1f\1d\98\9583695e6695a6ac0ad42d87511097dce5ba486647dbfecb0e
+Successfully built openai-whisper
+Installing collected packages: mpmath, urllib3, typing-extensions, sympy, regex, numpy, networkx, more-itertools, MarkupSafe, llvmlite, idna, fsspec, filelock, colorama, charset-normalizer, certifi, tqdm, requests, numba, jinja2, torch, tiktoken, openai-whisper
+  WARNING: The script isympy.exe is installed in 'C:\Users\lucid\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts f2py.exe and numpy-config.exe are installed in 'C:\Users\lucid\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script normalizer.exe is installed in 'C:\Users\lucid\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script tqdm.exe is installed in 'C:\Users\lucid\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The scripts convert-caffe2-to-onnx.exe, convert-onnx-to-caffe2.exe, torchfrtrace.exe and torchrun.exe are installed in 'C:\Users\lucid\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script whisper.exe is installed in 'C:\Users\lucid\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed MarkupSafe-3.0.2 certifi-2024.12.14 charset-normalizer-3.4.1 colorama-0.4.6 filelock-3.17.0 fsspec-2024.12.0 idna-3.10 jinja2-3.1.5 llvmlite-0.44.0 more-itertools-10.6.0 mpmath-1.3.0 networkx-3.4.2 numba-0.61.0 numpy-2.1.3 openai-whisper-20240930 regex-2024.11.6 requests-2.32.3 sympy-1.13.1 tiktoken-0.8.0 torch-2.5.1 tqdm-4.67.1 typing-extensions-4.12.2 urllib3-2.3.0
+
+[notice] A new release of pip is available: 24.0 -> 25.0
+[notice] To update, run: C:\Users\lucid\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\python.exe -m pip install --upgrade pip
+
+
+Output bei erstem Versuch:
+
+C:\Users\lucid\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\whisper\__init__.py:150: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(fp, map_location=device)
+C:\Users\lucid\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\whisper\transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
+  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
+Ein Fehler ist aufgetreten: [WinError 2] The system cannot find the file specified
+PS C:\Users\lucid\Desktop\Whisper> 
