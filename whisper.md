@@ -93,3 +93,14 @@ C:\Users\lucid\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n
   warnings.warn("FP16 is not supported on CPU; using FP32 instead")
 Ein Fehler ist aufgetreten: [WinError 2] The system cannot find the file specified
 PS C:\Users\lucid\Desktop\Whisper> 
+
+Output beim Versuch den Fehler zu beheben:
+
+PS C:\Users\lucid\Desktop\Whisper> ffmpeg -version
+ffmpeg : The term 'ffmpeg' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct 
+and try again.
+At line:1 char:1
++ ffmpeg -version
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (ffmpeg:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
