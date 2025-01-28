@@ -1,9 +1,8 @@
-# 70 Stunden-Projekt: Aufsetzen des Whipser-Transkriptionstools von OpenAI für das Schlaflabor
+# 70 Stunden-Projekt: Aufsetzen des Whisper-Transkriptionstools von OpenAI für das Schlaflabor
 
-27.01: 10:30 - 12:00; 12:30 - 13:15, 15:20 - 17:30 --> 4.25h/70h
+27.01: 10:30 - 12:00; 12:30 - 13:15, 15:20 - 17:30
 --> Für heute sind wir fertig. Morgen gehts dann daran rauszufinden, warum das nicht richtig funktioniert.
---> Recherche, aufsetzen der VS Code Umgebung, des Repos, der MD-Dokumentation und der Skripte. VR PC im Sleeplab vorbereiten für Whisper: Download VS Code, Python, FFmpeg (auch wenn das nicht funktioniert), klonen des Repos, um leichter arbeiten zu können, erster Trial-Run (which failed, but that was to be expected).
-All in all it was okay.
+
 
 Ressourcen: https://openai.com/index/whisper/
 
@@ -28,6 +27,7 @@ Das Endergebnis soll schon so aussehen, dass verschiedene Sprecherinnen erkannt 
 - Außerdem, wenn das auch geht, wäre es auch gut, wenn es direkt ein Skript geben würde, welches laufen gelassen werden kann, für die Übersetzung.
 - Das Programm müsste auf spezifische Sprache trainiert werden
 - Es wäre richtig super, wenn auch Mundart verstanden würde
+- schön wäre auch, wenn es ein Skript gibt, was einfach eine Liste an Berichten durchgeht und transkribiert
 
 ## Vorgehen
 ### Setup
@@ -106,3 +106,18 @@ At line:1 char:1
 + ~~~~~~
     + CategoryInfo          : ObjectNotFound: (ffmpeg:String) [], CommandNotFoundException
     + FullyQualifiedErrorId : CommandNotFoundException
+
+Day 2: Also, es braucht irgendwas mit [torch], damit das Whisper die GPU benutzt und ein bisschen schneller laufen kann. Das war im Urpsrungscode auch nicht drin. Das haben wir jetzt mal verbessert. Hoffnung ist, dass es jetzt also ein bisschen fixer funktioniert. Ausserdem wurde der Weg zu FFmpeg auch ins System und nicht nur dem User eingefügt, vielleicht hilft das auch. 
+Wir haben ein erstes Ergebnis! Und das passt einigermaßen gut zu dem, was ich bisher übersetzt habe.
+
+GPU funktioniert nicht, weil pyTorch mit CUDA Uterstützung auf Python 3.11 nicht funktioniert. Aber bevor Python jetzt irgendwie wild installiert wird, würde ich vorschlagen. dass erstmal die CPU benutzt wird, weil so super langsam war das gar nicht.
+
+Aktuell: Knapp 2-3 Minuten für 5 Minuten in turbo.
+Versuch mit large: 3MiB/s
+--> Mal schauen, ob large akkurater ist, aber aktuell und über die CPU ist es definitiv zu langsam.
+
+Versuch über GPU, mal schauen wie lange. Also, das [large] Modell braucht entschieden zu lange. Wir sind bei über 15 Minute. Also entweder ist das jetzt super exakt oder es wird verworfen.
+
+Plan: [turbo] über GPU laufen lassen --> weniger als 1 Minute. Wir behalten Turbo über die GPU.
+
+
