@@ -31,11 +31,10 @@ def transcribe_audio_chunk(chunk):
     """Transkribiert einen Chunk einer Audiodatei mit automatischer Spracherkennung."""
     result = model.transcribe(chunk, language=None, task="transcribe")  # Automatische Spracherkennung
     text = result["text"]
-    language = result["language"]
-    return text, language
+    return text
 
-def split_audio_into_chunks(audio_path, chunk_duration=30):
-    """Teilt die Audiodatei in Chunks (Standard: 30 Sekunden)."""
+def split_audio_into_chunks(audio_path, chunk_duration=10):
+    """Teilt die Audiodatei in Chunks (Standard: 10 Sekunden)."""
     audio = whisper.load_audio(audio_path)
     audio_length = len(audio) / whisper.audio.SAMPLE_RATE  # Dauer in Sekunden
     chunk_samples = int(chunk_duration * whisper.audio.SAMPLE_RATE)
@@ -62,8 +61,8 @@ else:
         print(f"Verarbeite Datei: {latest_audio_file}")
         audio_path = os.path.join(input_folder, latest_audio_file)
 
-        # Teile die Audiodatei in 30 Sekunden Chunks
-        audio_chunks = split_audio_into_chunks(audio_path, chunk_duration=30)
+        # Teile die Audiodatei in 10 Sekunden Chunks
+        audio_chunks = split_audio_into_chunks(audio_path, chunk_duration=10)
 
         # Word-Dokument erstellen
         doc = Document()
@@ -72,8 +71,7 @@ else:
         # Für jedes Chunk transkribieren und in das Dokument einfügen
         for idx, chunk in enumerate(audio_chunks):
             print(f"Verarbeite Chunk {idx + 1} von {len(audio_chunks)}...")
-            text, language = transcribe_audio_chunk(chunk)
-            doc.add_paragraph(f"Erkannte Sprache im Chunk {idx + 1}: {language.upper()}\n")
+            text = transcribe_audio_chunk(chunk)
             
             # Jeden Satz in eine eigene Zeile schreiben
             sentences = text.split(". ")
