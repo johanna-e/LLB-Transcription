@@ -1,6 +1,6 @@
 # 70 Stunden-Projekt: Aufsetzen des Whisper-Transkriptionstools von OpenAI für das Schlaflabor
 
-27.01: 10:30 - 12:00; 12:30 - 13:15, 15:20 - 17:30 //  4.25 / 70h
+27.01: 10:30 - 12:00; 12:30 - 13:15, 15:20 - 17:30 // 4.25 / 70h
 --> Recherche, aufsetzen der VS Code Umgebung, des Repos, der MD-Dokumentation und der Skripte. VR PC im Sleeplab vorbereiten für Whisper: Download VS Code, Python, FFmpeg (auch wenn das nicht funktioniert), klonen des Repos, um leichter arbeiten zu können, erster Trial-Run (which failed, but that was to be expected).
 --> Für heute sind wir fertig. Morgen gehts dann daran rauszufinden, warum das nicht richtig funktioniert.
 
@@ -8,10 +8,13 @@
 --> Heute: Modelle getestet, Fehler von gestern behoben. Whisper läuft jetzt über die GPU und über das turbo Modell. 
 --> Als nächstes: Listenweise Transkriptionen, spez. Z05 Transkripionen (also inkl. Konvertierung). Transkriptionen aud DE und MIX, herausfinden, wie Transkriptionen von Mundart möglich sind. Schönes Repo gestalten. Anleitung schreiben. 
 
-29.01: 10:20
+29.01: 10:20 - 11:50, 12:20 - 13:00 // 10.25/ 70h
 Plan für heute: Die anderen Skripte aufsetzen. Übersetzungen probieren.
 Plan für "away from lab pc": diese Dokumentation aufräumen, Bild für README gestalten, Anleitung aufsetzen, Gedanken über Workflow machen 
-
+--> Skript für die listenweise und multilinguale Transkription aufgesetzt und ausgeführt. 
+--> Als nächstes: Übersetzungen gezielt einsetzen (In MIX Skripten und extra Skript für die Übersetzung von DE Berichten --> Gedanken, ob bestehender Text übersetzt werden soll, oder gesprochener); Mundart; Whisper trainieren. Komplexeres Skript für Erkennen der Sprechenden aufsetzen und auf Effizienz testen.
+--> Recherchearbeit kannst du auch von daheim aus machen, Johanna. Und das hier aufräumen auch ;)
+--> Irgendwann sollte ich die Ordnerspezifischen Namen in den Skripten auch anpassen. Aber das wäre ja ein iterativer Prozess und sollte in einer Anleitung festgehalten werden, damit auch Personen nach mir das hinbekommen können.
 
 ## Ressourcen:
 Website: https://openai.com/index/whisper/
@@ -136,3 +139,39 @@ Fixes update: ich hab irgendwie mist beim updaten gemacht (i kinda knew that) un
 Day 3: Learning: Gewisse Dinge sind case sensitive. Ich habe im Skrpit zur Listentranskription wma zu WMA geändert und jetzt werden meine 51 Berichte transkribiert. Und das sogar ziemlich fix.
 Reflektion: Es hieß mal, dass Repos oder sowas in OneDrive Ordnern schwierig sind. Wenn das später also alles online läuft, ist die Frage, wie lange das gut geht. Es sollte nur einfach an einer Stelle festgehalten sein, denn wenn Fehler auftreten, könnte das eine Anlaufstelle zum Troubleshooting sein.
 Neue Erkenntnis: Ein fast autonomes Laufen des Skriptes sollte gehen. Genauer finde ich das noch raus, das ist aktuell ja irgendwie nicht der Plan. Oder halt für später.
+
+To Do: 
+[x] Listwise Skript wieder verallgemeinern bzw. abändern. Die Konvertierung brauch es ja auch nicht für alle Fälle. --> Wobei sie vermutlich auchnicht schadet. Also nochmal checken, das kann eigentlich drin bleiben.
+[x] Ausprobieren, wie das funktioniert, wenn die Sprache gemischt ist. 
+[] Erkennen der Sprechenden wäre noch ordentlich cool. ChatGPT sagt hierzu: Sprecherkennung (rudimentär):
+
+Leider bietet Whisper keine eingebaute Funktion zur Speaker Diarization. Wenn du wirklich die Sprecher zuordnen möchtest, müsstest du eine zusätzliche Bibliothek wie pyannote.audio verwenden, die die Sprecher anhand von Audiointervallen erkennt. Hier ist eine einfache Methode zur Trennung der Sprecher in einem rudimentären Format:
+Es gibt keine direkte Möglichkeit in diesem Code, zwischen den Sprechern zu unterscheiden, ohne eine separate Speaker-Diarization-Lösung zu verwenden.
+Für eine echte Sprecherzuordnung müsste man nach der Transkription die Pausen und Sprecherwechsel zwischen den Sätzen auswerten und dann manuell oder automatisch Speaker 1 und Speaker 2 zuweisen. Diese Funktionalität würde jedoch zusätzliche Bibliotheken und deutlich mehr Komplexität erfordern. --> Demnach wäre das ein längerfristiges Ziel.
+
+[] Übersetzungen.
+[] Rausfinden, wie Zürich es geschafft hat, dass Mundart gekonnt wird.
+[] Allgemein rausfinden, wie sich Whisper trainieren lässt.
+
+Weitere Überlegung: Wenn der PC das automatisch Abrufen soll, dann geht vermutlich nur 1 Skript? Über die Logisitk mache ich mir zu einem anderen Zeitpunkt nochmal Gedanken.
+Interessanter Turn: Es ist anscheinend eine Übersetzung in meinem MIX-Transkript drin, die da Überhaupt nicht hinsoll. 
+Noch eine Erkenntnis: Anscheinend übersetzt Whisper teilweise automatisch. Umso wichtiger, dass am Ende spezifizierte Skripte entstanden sind. 
+
+Im MIX Skript wird aktuell das [large] Modell verwendet. Aber das braucht aktuell nicht allzu lange und da die Sprachen gemischt sind, ist alles, was akkuratere Ergebnisse verspricht, eigentlich gern gesehen. Vor allem, da das aktuell auch unter einer Minute dauert. Frage ist dann, warum das gestern so lange war. 
+Es ist möglich im Code Whisper eine gezielte Aufgabe zu geben. Das sollte ich im Kopf behalten.
+
+&rarr; Es wird nicht automatisch in "Chunks" unterteilt, dass muss Whisper auch gesagt werden. So wird sonst eine Sprache für ein Dokument erkannt und mehrsprachige Transkriptionen können trotzdem übersetzt und falsch erkannt werden. 
+Whisper kann grundsätzlich mehrere Sprachen in einer Audiodatei erkennen. Allerdings wird die gesamte Datei standardmäßig einer einzigen Sprache zugeordnet.
+
+Der gute ChatGPT:
+Das bedeutet:
+✅ Wenn die Datei komplett auf Deutsch oder komplett auf Englisch ist, wird die richtige Sprache erkannt.
+⚠️ Wenn die Datei mehrsprachig ist, wird oft nur eine Hauptsprache erkannt, und Teile in anderen Sprachen könnten falsch transkribiert oder fehlinterpretiert werden.
+
+Chunks werden erstmal auf 30s gesetzt. Frage ist, ob das zu lang ist? --> Ergebnis: Das mit den Chinks und den Sprachen funktioniert gut. Aber sie wären definitiv zu lang. Kürzere Chunks wären mehr Rechenarbeit, aber da das aktuell noch schnell funktioniert, denke ich, ist das ein sehr akzeptabler trade-off.
+
+FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(fp, map_location=device)
+  --> Irgendwann sollte ich diese Meldung mal nachschauen und gucken, ob das relevant ist für mich. 
+
+Aktuell versuchen wir mehrsprachige Transkription meherer Datein (N=11), Chunks = 10s, Modell = large. Dauer: ca. 7 - 8 Minuten.
