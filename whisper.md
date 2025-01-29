@@ -1,10 +1,14 @@
 # 70 Stunden-Projekt: Aufsetzen des Whisper-Transkriptionstools von OpenAI für das Schlaflabor
 
-27.01: 10:30 - 12:00; 12:30 - 13:15, 15:20 - 17:30 // 4.25 / 70h
+27.01: 10:30 - 12:00; 12:30 - 13:15, 15:20 - 17:30 //  4.25 / 70h
+--> Recherche, aufsetzen der VS Code Umgebung, des Repos, der MD-Dokumentation und der Skripte. VR PC im Sleeplab vorbereiten für Whisper: Download VS Code, Python, FFmpeg (auch wenn das nicht funktioniert), klonen des Repos, um leichter arbeiten zu können, erster Trial-Run (which failed, but that was to be expected).
 --> Für heute sind wir fertig. Morgen gehts dann daran rauszufinden, warum das nicht richtig funktioniert.
+
 28.01: 13:30 - 17:00 // 7.55 / 70h
 --> Heute: Modelle getestet, Fehler von gestern behoben. Whisper läuft jetzt über die GPU und über das turbo Modell. 
 --> Als nächstes: Listenweise Transkriptionen, spez. Z05 Transkripionen (also inkl. Konvertierung). Transkriptionen aud DE und MIX, herausfinden, wie Transkriptionen von Mundart möglich sind. Schönes Repo gestalten. Anleitung schreiben. 
+
+29.01: 10:20
 
 Ressourcen: https://openai.com/index/whisper/
 
@@ -122,4 +126,6 @@ Versuch über GPU, mal schauen wie lange. Also, das [large] Modell braucht entsc
 
 Plan: [turbo] über GPU laufen lassen --> weniger als 1 Minute. Wir behalten Turbo über die GPU.
 
+
+Fixes update: ich hab irgendwie mist beim updaten gemacht (i kinda knew that) und jetzt muss ich mich morgen mal hierum kümmern. Es kommen aber noch knapp 15 Minuten auf meine arbeitszeit drauf. :D
 
