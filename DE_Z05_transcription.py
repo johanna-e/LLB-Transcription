@@ -13,7 +13,7 @@ def convert_wma_to_mp3(input_path, output_path):
 # Funktion, um alle Audiodateien im Ordner zu finden
 def get_audio_files(folder_path):
     # Durchsuche den Ordner nach wma-, mp3-, wav- und m4a-Dateien
-    audio_files = [f for f in os.listdir(folder_path) if f.endswith(('.mp3', '.wav', '.m4a', '.wma'))]
+    audio_files = [f for f in os.listdir(folder_path) if f.endswith(('.mp3', '.wav', '.m4a', '.WMA'))]
     return audio_files
 
 # Prüfen, ob eine GPU verfügbar ist
