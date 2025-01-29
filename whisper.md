@@ -4,13 +4,17 @@
 --> Recherche, aufsetzen der VS Code Umgebung, des Repos, der MD-Dokumentation und der Skripte. VR PC im Sleeplab vorbereiten für Whisper: Download VS Code, Python, FFmpeg (auch wenn das nicht funktioniert), klonen des Repos, um leichter arbeiten zu können, erster Trial-Run (which failed, but that was to be expected).
 --> Für heute sind wir fertig. Morgen gehts dann daran rauszufinden, warum das nicht richtig funktioniert.
 
-28.01: 13:30 - 17:00 // 7.55 / 70h
+28.01: 13:30 - 17:00, 22:00 - 22:15 // 8.15 / 70h
 --> Heute: Modelle getestet, Fehler von gestern behoben. Whisper läuft jetzt über die GPU und über das turbo Modell. 
 --> Als nächstes: Listenweise Transkriptionen, spez. Z05 Transkripionen (also inkl. Konvertierung). Transkriptionen aud DE und MIX, herausfinden, wie Transkriptionen von Mundart möglich sind. Schönes Repo gestalten. Anleitung schreiben. 
 
 29.01: 10:20
+Plan für heute: Die anderen Skripte aufsetzen. Übersetzungen probieren.
+Plan für "away from lab pc": diese Dokumentation aufräumen, Bild für README gestalten, Anleitung aufsetzen, Gedanken über Workflow machen 
 
-Ressourcen: https://openai.com/index/whisper/
+
+## Ressourcen:
+Website: https://openai.com/index/whisper/
 
 Paper: https://cdn.openai.com/papers/whisper.pdf
 
@@ -129,3 +133,6 @@ Plan: [turbo] über GPU laufen lassen --> weniger als 1 Minute. Wir behalten Tur
 
 Fixes update: ich hab irgendwie mist beim updaten gemacht (i kinda knew that) und jetzt muss ich mich morgen mal hierum kümmern. Es kommen aber noch knapp 15 Minuten auf meine arbeitszeit drauf. :D
 
+Day 3: Learning: Gewisse Dinge sind case sensitive. Ich habe im Skrpit zur Listentranskription wma zu WMA geändert und jetzt werden meine 51 Berichte transkribiert. Und das sogar ziemlich fix.
+Reflektion: Es hieß mal, dass Repos oder sowas in OneDrive Ordnern schwierig sind. Wenn das später also alles online läuft, ist die Frage, wie lange das gut geht. Es sollte nur einfach an einer Stelle festgehalten sein, denn wenn Fehler auftreten, könnte das eine Anlaufstelle zum Troubleshooting sein.
+Neue Erkenntnis: Ein fast autonomes Laufen des Skriptes sollte gehen. Genauer finde ich das noch raus, das ist aktuell ja irgendwie nicht der Plan. Oder halt für später.
