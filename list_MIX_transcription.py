@@ -15,7 +15,7 @@ else:
 
 # Ordnerpfade
 input_folder = "24FS_LD_MS_Audio"
-output_folder = "24_FS_LD_Transcript"
+output_folder = "24FS_LD_Transcript"
 
 # Whisper-Modell laden (turbo oder medium empfohlen)
 model = whisper.load_model("large", device=device)
