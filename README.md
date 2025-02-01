@@ -1,5 +1,7 @@
 # Lucid Lab Bern: Speech-to-text Transcription 
 
+![logo](whisper_logo.png)
+
 The Lucid Lab Bern uses Whisper (probably cite) to transcribe (and hopefully at some point translate) spoken dream recordings into written dream reports.
 Different scripts are used to transcribe English (EN), German (DE) and multilingual (MIX) dream recordings and made available for transparency here.
 
