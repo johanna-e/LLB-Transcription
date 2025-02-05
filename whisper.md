@@ -16,10 +16,10 @@ Plan für "away from lab pc": diese Dokumentation aufräumen, Bild für README g
 --> Recherchearbeit kannst du auch von daheim aus machen, Johanna. Und das hier aufräumen auch ;)
 --> Irgendwann sollte ich die Ordnerspezifischen Namen in den Skripten auch anpassen. Aber das wäre ja ein iterativer Prozess und sollte in einer Anleitung festgehalten werden, damit auch Personen nach mir das hinbekommen können.
 
-02.02: 8:00 - 9:05 // 11:30 / 70h
+02.02: 8:00 - 9:05 // 11.30 / 70h
 "Titelblattdesign" für das Readme auf GitHub. Es war vermutlich nicht notwendig, so etwas zu diesem Zeitpunkt im Prozess zu machen, aber ich konnte mich nicht davon abhalten. Es schaut jetzt schon irgendwie deutlich schöner aus. Ob dafür fraglich viel Zeit draufgegangen ist, nur damit es ästhetisch ausschaut... vielleicht.
 
-05.02.: 11:00
+05.02.: 11:00 - 14:00 // 14.30 / 70h
 Plan für heute: Sollte ich zuerst meine Doku sortieren? Ich glaube nicht. Es fühlt sich auch nach verschwendeter oder zumindest nicht korrekt genutzter Arbeitszeit an, wenn ich an einer ordentlichen Dokumentation sitze anstatt an etwas tatächlich inhaltlichen.
 Ziel ist nach wie vor:
 [] einmal alle Skripte haben --> das wäre liste/einzeln, DE/EN/MIX und Übersetzung (ich glaube das sollte automatisch auswählen ob von DE zu EN oder andersrum, aber wenn es spezifiziert genauer ist, machen wir auch das.)
@@ -54,6 +54,7 @@ Das Endergebnis soll schon so aussehen, dass verschiedene Sprecherinnen erkannt 
 - Erkennung von Sprechenden --> schwierig
 - Das Programm müsste auf spezifische Sprache trainiert werden --> auch bisschen schwierig
 - Es wäre richtig super, wenn auch Mundart verstanden würde --> das ist bisschen schwierig, nochmal Uni Zürich konsultieren
+- Akkuratere Übersetzugen über ein anderes Tool als Whisper integrieren
 
 ## Vorgehen
 ### Setup
@@ -189,9 +190,44 @@ FutureWarning: You are using `torch.load` with `weights_only=False` (the current
 
 Aktuell versuchen wir mehrsprachige Transkription meherer Datein (N=11), Chunks = 10s, Modell = large. Dauer: ca. 7 - 8 Minuten.
 
-To-Do's für 5.02
-[] one_DE Skript
-[] list_EN Skript
-[] translate_to_DE
-[] translate_to_EN
+Day 4: Aktuell prüfen glaube ich nur die Skripte für die Listen-Transkriptionen auf eine GPU. Ich finde das aber okay bzw. würde das auch nicht in den anderen Codes nicht einbauen, weil diese 1. aktuell noch mit dem [turbo] Modell arbeiten, welches weniger Leistung braucht als das [large] Modell und daher zur Not auch über die CPU laufen kann. Das heißt, zumindest dem status-quo am 5.2 nach würde ich sagen, würde sowas den Code nur unnötig unübersichtlich machen. Ich halte es aber nicht für unmöglich, dass ich meine Meinung diesbezüglich nochmal ändere.
+Ich sollte ggf. schauen, dass alles, was mit MIX läuft, über [large] funktioniert? --> Ich könnte die Skripte auch dann so anpassen, dass der Durchlauf nicht stattfindet, wenn keine GPU gefunden wird. Das könnte davor schützen, dass der PC sich einer enormen Belastung der CPU unterzieht.
+
+Um das mit den Übersetzungen zu starten, habe ich direkt mal das mit den spezifischen Skripten probiert (um das Deutsche Transkript zu haben) und das funktioniert. Das läuft soweit.
+Übersetzung: Erstmal in einem eigenen Skript, nicht automatisiert in den anderen. Vielleicht ließe sich ja am Anfang etwas einbauen in die Richtung von: alle Dateien übersetzen, die neuste oder eine bestimmte. Für die Übersetzung packen wir alle Optionen (list, one, spec) in ein Skript, weil ich erstmal davon ausgehe, dass die Übersetzungen gezielt initiiert werden, während es schön wäre, wenn die Transkriptionen so autark wie möglich laufen könnten.
+Also, Übersetzungen mit Whisper sind echt nicht so ganz das Wahre. Und irgendwie vielleicht auch sinnlos vor dem Hintergrund, dass am ehesten ja schon der konvertierte Bericht übersetzt werden sollte. Ich denke, es ist mäßig hilfreich, das Skript trotzdem zu haben, aber ich halte es für eine eher wenig sinnige Lösung für Übersetzungen. Das ist also etwas, was gegen Ende angegangen wird; anhand eines anderen Tools.  
+
+
+### To-Do's für 5.02
+[x] one_DE Skript --> + Sätze in einzelnen Zeilen in Output in DE und EN, MIX hatte das schon  
+[x] list_EN Skript  
+[x] spezifische Transkription  
+[x] translate_to_DE  --> DE und EN unterscheiden sich im Skript nicht  
+[x] translate_to_EN  
 [] ggf. anfangen ein Tutorial zu schreiben.
+
+### To-Do's im Prozess
+[] Modellentscheidung überdenken, aktuell schein [large] auch ganz gut zu funktionieren  
+[] Sprache im Code anpassen --> Kommentare, Überschrift Ausgabedatei  
+[] Skripte allgemein überarbeiten und bereinigen --> durch das ständige Benutzen (ohne zu genaues Gegenchecken meinerseits) von ChatGPT sind die Skripte unfasssbar unterschiedlich. Das braucht es irgendwie nicht.  
+[] Ich glaube ich sollte für das Repo auch noch ein Dokument aufsetzten, was erklärt, warum die Skripte so sind, wie sie sind? Also das, was ich hier mache, nur besser?
+
+**Feststellung**
+Erster Versuch Übersetzung gescheitert, weil Whisper nicht mit Word-Dateien arbeitet, sondern nur mit Audio, das ergibt ja Sinn. Also stellt sich jetzt die Frage: entweder also suche ich mir was, das mit Word zusammenarbeitet oder ich lasse die Audio direkt übersetzen. Frage ist, was besser - also akkurater - funktioniert. Also: da ich mein Hauptprojekt Whisper und die Transkriptionen sind, machen wir die Übersetzungen auch vorerst mit Whisper. Für höhere Genauigkeit sind andere Tools (MariamMT [Vorschlag ChatGPT, ich sollte mal PyPi checken]) besser. Das ist also ein tertiäres Ziel.
+
+### To-Do's zum Abschluss
+[] Skripte generalisieren --> aktuell stehen noch spezifische Ordnernamen drin, die werden dann irgendwann nicht mehr passen  
+[] Whisper auf richtigem PC aufsetzen  
+[] Definitiv mit Ralf abklären, ob das alles so in Ordnung ist. Falls mir ein Fehler passiert ist - und ich bin mir sicher, dass ChatGPT und ich sehr fehleranfällig sind - wäre es schön, wenn so wenig wie möglich dadurch in Mitleidenschaft gezogen würde (bspw. ein Befehl im Code ist falsch und der Rechner überlastet sich, ohne, dass jemand das mitbekommt)
+
+Zwischenfrage: Aktuell wird nur immer die neuste Audio oder eben ein ganzer Ordner transkribiert. Wenn ich allerdings eine spezifische hab, müsste ich das ganze noch anpassen. Frage ist, ob ich dafür auch ein eigenes Skript brauche, oder ob ich sowas ins Tutorial (aber ansonsten "one" umbenennen in "new" [dann wird das neuste immer genommen] und das skript, wo eine gezielte verwendet wird, dann "one" nennen) --> ich habe mich für "spec" = specific entschieden, da "new" irgendwie gefühlt etwas missverständlich wäre. Weil jede zu erstellende Transkription ist ja irgendwie neu. Das wäre noch eine vernünftige Idee. Meine Sorge an der Stelle ist, dass es zu "simpel" ist und alle Leute, die so voll im Game drin sind, meine Ansätze peinlich finden, weil es sich auch einfacher lösen ließe. Aber das wäre dann eben so, würde ich sagen.
+
+Jetzt fällt mir auch ein: Was wäre, wenn ich ein Skript hääte, was folgendes kann:
+- es fragt, was gemacht werden soll (Transkription von welcher Sprache [EN, DE, MIX], one/list/new, Übersetzung)
+- fragt nach input/output folder
+- ggf. nach namen der Audiodate (if "one")
+- ruft dann eigenständig den Code dafür ab
+- läuft dann automatisch
+- fragt, ob Übersetzung stattfinden soll
+--> das sollte doch bestimmt irgendwie gehen?
+--> definitiv gegen Ende, now focus Johanna
