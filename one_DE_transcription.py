@@ -1,5 +1,7 @@
 # Dream Transcript for German Audio Files
 
+
+import os
 import os
 import whisper
 from docx import Document
@@ -33,12 +35,15 @@ try:
         
         # Transkribiere die Datei
         audio_path = os.path.join(input_folder, latest_audio_file)
-        result = model.transcribe(audio_path, language="de")
-        
+        result = model.transcribe(audio_path, language="de") # die Sprache muss nicht zwangsläufig angegeben werden, aber durch die Angabe der Sprache wird die Genauigkeit der Transkription erhöht
+
         # Erstelle ein neues Word-Dokument
         doc = Document()
         doc.add_heading(f'Transkript der Datei: {latest_audio_file}', 0)
-        doc.add_paragraph(result["text"])
+
+        # Füge jeden Satz in eine neue Zeile ein
+        for segment in result["segments"]:
+            doc.add_paragraph(segment["text"])
         
         # Sicherstellen, dass der Ausgabeordner existiert
         if not os.path.exists(output_folder):
