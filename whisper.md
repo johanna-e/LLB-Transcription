@@ -8,13 +8,21 @@
 --> Heute: Modelle getestet, Fehler von gestern behoben. Whisper läuft jetzt über die GPU und über das turbo Modell. 
 --> Als nächstes: Listenweise Transkriptionen, spez. Z05 Transkripionen (also inkl. Konvertierung). Transkriptionen aud DE und MIX, herausfinden, wie Transkriptionen von Mundart möglich sind. Schönes Repo gestalten. Anleitung schreiben. 
 
-29.01: 10:20 - 11:50, 12:20 - 13:00 // 10.25/ 70h
+29.01: 10:20 - 11:50, 12:20 - 13:00 // 10.25 / 70h
 Plan für heute: Die anderen Skripte aufsetzen. Übersetzungen probieren.
 Plan für "away from lab pc": diese Dokumentation aufräumen, Bild für README gestalten, Anleitung aufsetzen, Gedanken über Workflow machen 
 --> Skript für die listenweise und multilinguale Transkription aufgesetzt und ausgeführt. 
 --> Als nächstes: Übersetzungen gezielt einsetzen (In MIX Skripten und extra Skript für die Übersetzung von DE Berichten --> Gedanken, ob bestehender Text übersetzt werden soll, oder gesprochener); Mundart; Whisper trainieren. Komplexeres Skript für Erkennen der Sprechenden aufsetzen und auf Effizienz testen.
 --> Recherchearbeit kannst du auch von daheim aus machen, Johanna. Und das hier aufräumen auch ;)
 --> Irgendwann sollte ich die Ordnerspezifischen Namen in den Skripten auch anpassen. Aber das wäre ja ein iterativer Prozess und sollte in einer Anleitung festgehalten werden, damit auch Personen nach mir das hinbekommen können.
+
+02.02: 8:00 - 9:05 // 11:30 / 70h
+"Titelblattdesign" für das Readme auf GitHub. Es war vermutlich nicht notwendig, so etwas zu diesem Zeitpunkt im Prozess zu machen, aber ich konnte mich nicht davon abhalten. Es schaut jetzt schon irgendwie deutlich schöner aus. Ob dafür fraglich viel Zeit draufgegangen ist, nur damit es ästhetisch ausschaut... vielleicht.
+
+05.02.: 11:00
+Plan für heute: Sollte ich zuerst meine Doku sortieren? Ich glaube nicht. Es fühlt sich auch nach verschwendeter oder zumindest nicht korrekt genutzter Arbeitszeit an, wenn ich an einer ordentlichen Dokumentation sitze anstatt an etwas tatächlich inhaltlichen.
+Ziel ist nach wie vor:
+[] einmal alle Skripte haben --> das wäre liste/einzeln, DE/EN/MIX und Übersetzung (ich glaube das sollte automatisch auswählen ob von DE zu EN oder andersrum, aber wenn es spezifiziert genauer ist, machen wir auch das.)
 
 ## Ressourcen:
 Website: https://openai.com/index/whisper/
@@ -37,10 +45,15 @@ Danach kann es gegengelesen und in die Sleeplab übersicht eingefügt werden.
 Das Endergebnis soll schon so aussehen, dass verschiedene Sprecherinnen erkannt werden. Pausen per se sind vielleicht auch ganz hilfreich.
 
 ### Sekundäre Ziele:
-- Außerdem, wenn das auch geht, wäre es auch gut, wenn es direkt ein Skript geben würde, welches laufen gelassen werden kann, für die Übersetzung.
-- Das Programm müsste auf spezifische Sprache trainiert werden
-- Es wäre richtig super, wenn auch Mundart verstanden würde
-- schön wäre auch, wenn es ein Skript gibt, was einfach eine Liste an Berichten durchgeht und transkribiert
+- Außerdem, wenn das auch geht, wäre es auch gut, wenn es direkt ein Skript geben würde, welches laufen gelassen werden kann, für die Übersetzung --> machbar
+- schön wäre auch, wenn es ein Skript gibt, was einfach eine Liste an Berichten durchgeht und transkribiert --> schon gemacht
+- Skript läuft automatisch in einem gewissen Zeitfenster, sodass wirklich nur noch die Aufnahmen hochgeladen werden müssen --> machbar, aber dafür sollte ich mir ein paar logisitsche Gedanken gemacht haben und mal mit Daniel reden. (Erste Idee: oben in Emmas & Xinlins Büro ist ja auch ein leistungsstarker PC, wenn der das machen könnte, wäre die ganze Sache etwas überwachter? Dann müsste nur definitiv an irgendeiner Stelle stehen, wann und wie das ganze aufhört bzw. beendet werden kann.)
+
+### Tertiäte Ziele:
+&rarr; Diese Ziele sind vorerst schwieriger zu erreichen und vermutlich weniger relevant für das zentrale Ziel der Transkription der Traumberichte. Diese Ziele würde ich ggf. auch über die 70h weiterverfolgen, einfach nur weil ich dem Projekt gerne einen richtig guten Schliff geben möchte. Heißt auch, *note to self*, an diesen Zielen sollte ich mich vorerst nicht aufhängen. Ich glaube das wird das schwerste.
+- Erkennung von Sprechenden --> schwierig
+- Das Programm müsste auf spezifische Sprache trainiert werden --> auch bisschen schwierig
+- Es wäre richtig super, wenn auch Mundart verstanden würde --> das ist bisschen schwierig, nochmal Uni Zürich konsultieren
 
 ## Vorgehen
 ### Setup
@@ -151,7 +164,7 @@ Für eine echte Sprecherzuordnung müsste man nach der Transkription die Pausen 
 
 [] Übersetzungen.
 [] Rausfinden, wie Zürich es geschafft hat, dass Mundart gekonnt wird.
-[] Allgemein rausfinden, wie sich Whisper trainieren lässt.
+[x] Allgemein rausfinden, wie sich Whisper trainieren lässt. --> bisschen schwierig, eigentlich gar nicht.
 
 Weitere Überlegung: Wenn der PC das automatisch Abrufen soll, dann geht vermutlich nur 1 Skript? Über die Logisitk mache ich mir zu einem anderen Zeitpunkt nochmal Gedanken.
 Interessanter Turn: Es ist anscheinend eine Übersetzung in meinem MIX-Transkript drin, die da Überhaupt nicht hinsoll. 
@@ -175,3 +188,10 @@ FutureWarning: You are using `torch.load` with `weights_only=False` (the current
   --> Irgendwann sollte ich diese Meldung mal nachschauen und gucken, ob das relevant ist für mich. 
 
 Aktuell versuchen wir mehrsprachige Transkription meherer Datein (N=11), Chunks = 10s, Modell = large. Dauer: ca. 7 - 8 Minuten.
+
+To-Do's für 5.02
+[] one_DE Skript
+[] list_EN Skript
+[] translate_to_DE
+[] translate_to_EN
+[] ggf. anfangen ein Tutorial zu schreiben.
