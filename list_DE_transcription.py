@@ -1,4 +1,4 @@
-# Skript um mehrere Audiodatei zu transkribieren
+# Skript um mehrere deutsche Audiodateien zu transkribieren
 
 import os
 import whisper
