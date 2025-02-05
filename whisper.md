@@ -163,7 +163,7 @@ Leider bietet Whisper keine eingebaute Funktion zur Speaker Diarization. Wenn du
 Es gibt keine direkte Möglichkeit in diesem Code, zwischen den Sprechern zu unterscheiden, ohne eine separate Speaker-Diarization-Lösung zu verwenden.
 Für eine echte Sprecherzuordnung müsste man nach der Transkription die Pausen und Sprecherwechsel zwischen den Sätzen auswerten und dann manuell oder automatisch Speaker 1 und Speaker 2 zuweisen. Diese Funktionalität würde jedoch zusätzliche Bibliotheken und deutlich mehr Komplexität erfordern. --> Demnach wäre das ein längerfristiges Ziel.
 
-[] Übersetzungen.
+[x] Übersetzungen.
 [] Rausfinden, wie Zürich es geschafft hat, dass Mundart gekonnt wird.
 [x] Allgemein rausfinden, wie sich Whisper trainieren lässt. --> bisschen schwierig, eigentlich gar nicht.
 
@@ -202,7 +202,7 @@ Also, Übersetzungen mit Whisper sind echt nicht so ganz das Wahre. Und irgendwi
 [x] one_DE Skript --> + Sätze in einzelnen Zeilen in Output in DE und EN, MIX hatte das schon  
 [x] list_EN Skript  
 [x] spezifische Transkription  
-[x] translate_to_DE  --> DE und EN unterscheiden sich im Skript nicht  
+[x] translate_to_DE  --> DE und EN unterscheiden sich im Skript nicht, tun sie wohl :'D Aber da die Übersetzung echt nur so mittelmäßig ist, würde ich an dieser Stelle mal nicht weiterarbeiten.  
 [x] translate_to_EN  
 [] ggf. anfangen ein Tutorial zu schreiben.
 
