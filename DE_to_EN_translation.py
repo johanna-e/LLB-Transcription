@@ -1,5 +1,7 @@
 # Deutsch zu Englisch Übersetzung
 
+# Deutsch zu Englisch Übersetzung
+
 import os
 import whisper
 from docx import Document
@@ -22,7 +24,13 @@ def translate_file(file_path, model):
     try:
         print(f"Übersetze Datei: {file_path}")
         result = model.transcribe(file_path, task="translate", language="de")  # Übersetzung ins Englische
-        return result["text"]
+        translated_text = result["text"]
+        
+        # Jeden Satz in eine eigene Zeile setzen
+        sentences = translated_text.split('. ')
+        formatted_text = '.\n'.join(sentences)
+        
+        return formatted_text
     except Exception as e:
         print(f"Fehler bei der Übersetzung der Datei {file_path}: {e}")
         return None
