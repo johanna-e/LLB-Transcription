@@ -16,7 +16,7 @@ Plan für "away from lab pc": diese Dokumentation aufräumen, Bild für README g
 --> Recherchearbeit kannst du auch von daheim aus machen, Johanna. Und das hier aufräumen auch ;)
 --> Irgendwann sollte ich die Ordnerspezifischen Namen in den Skripten auch anpassen. Aber das wäre ja ein iterativer Prozess und sollte in einer Anleitung festgehalten werden, damit auch Personen nach mir das hinbekommen können.
 
-02.02: 8:00 - 9:05 // 11.30 / 70h
+02.02: 8:00 - 10:05 // 12.30 / 70h
 "Titelblattdesign" für das Readme auf GitHub. Es war vermutlich nicht notwendig, so etwas zu diesem Zeitpunkt im Prozess zu machen, aber ich konnte mich nicht davon abhalten. Es schaut jetzt schon irgendwie deutlich schöner aus. Ob dafür fraglich viel Zeit draufgegangen ist, nur damit es ästhetisch ausschaut... vielleicht.
 
 05.02.: 11:00 - 14:00 // 14.30 / 70h
