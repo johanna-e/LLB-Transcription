@@ -56,6 +56,9 @@ Das Endergebnis soll schon so aussehen, dass verschiedene Sprecherinnen erkannt 
 - Es wäre richtig super, wenn auch Mundart verstanden würde --> das ist bisschen schwierig, nochmal Uni Zürich konsultieren
 - Akkuratere Übersetzugen über ein anderes Tool als Whisper integrieren
 
+### Ultimatives Ziel:
+Eine Desktopanwendung, die das alles kann. Aber, Schusterin, bleib bei deinen Leisten.
+
 ## Vorgehen
 ### Setup
 Also erstmal muss ich rausfinden, was genau hier passiert und ob ich es in VS Code starten kann. Wenn nicht, würde mich das sehr unglücklich machen, da ich mich eigentlich nicht an eine neue Umgebung gewöhnen möchte.
@@ -89,52 +92,8 @@ Das heißt, noScribe aus Luzern und das Zeug aus Zürich werden als Inspiration 
 - Die Audiodatein werden nicht im selben Ordner wie das Skript liegen, es muss also der Pfad ordentlich angegeben werden. &rarr; in diesem Kontext wäre es hilfreich, herauszufinden, ob es möglich ist, dass das Skript immer die "neuste" Audio aufgreift
 - gff. ist das mit der neusten Audio noch zu hoch gestochen resp. interessant für später. Um zu testen, ob das ganze läuft, reicht ggf. auch einfach ein "Basic Skript"
 
-Ergebnis, wenn Whisper geladen:
-Building wheels for collected packages: openai-whisper
-  Building wheel for openai-whisper (pyproject.toml) ... done
-  Created wheel for openai-whisper: filename=openai_whisper-20240930-py3-none-any.whl size=813013 sha256=ab76fb4f2dc1a1983aecc9b23e951cfae289d6842855553c884963ec30607dad
-  Stored in directory: C:\Users\lucid\AppData\Local\Temp\pip-ephem-wheel-cache-r5vqs6b9\wheels\1f\1d\98\9583695e6695a6ac0ad42d87511097dce5ba486647dbfecb0e
-Successfully built openai-whisper
-Installing collected packages: mpmath, urllib3, typing-extensions, sympy, regex, numpy, networkx, more-itertools, MarkupSafe, llvmlite, idna, fsspec, filelock, colorama, charset-normalizer, certifi, tqdm, requests, numba, jinja2, torch, tiktoken, openai-whisper
-  WARNING: The script isympy.exe is installed in 'C:\Users\lucid\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.
-  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
-  WARNING: The scripts f2py.exe and numpy-config.exe are installed in 'C:\Users\lucid\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.
-  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
-  WARNING: The script normalizer.exe is installed in 'C:\Users\lucid\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.
-  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
-  WARNING: The script tqdm.exe is installed in 'C:\Users\lucid\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.
-  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
-  WARNING: The scripts convert-caffe2-to-onnx.exe, convert-onnx-to-caffe2.exe, torchfrtrace.exe and torchrun.exe are installed in 'C:\Users\lucid\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.
-  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
-  WARNING: The script whisper.exe is installed in 'C:\Users\lucid\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\Scripts' which is not on PATH.
-  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
-Successfully installed MarkupSafe-3.0.2 certifi-2024.12.14 charset-normalizer-3.4.1 colorama-0.4.6 filelock-3.17.0 fsspec-2024.12.0 idna-3.10 jinja2-3.1.5 llvmlite-0.44.0 more-itertools-10.6.0 mpmath-1.3.0 networkx-3.4.2 numba-0.61.0 numpy-2.1.3 openai-whisper-20240930 regex-2024.11.6 requests-2.32.3 sympy-1.13.1 tiktoken-0.8.0 torch-2.5.1 tqdm-4.67.1 typing-extensions-4.12.2 urllib3-2.3.0
 
-[notice] A new release of pip is available: 24.0 -> 25.0
-[notice] To update, run: C:\Users\lucid\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\python.exe -m pip install --upgrade pip
-
-
-Output bei erstem Versuch:
-
-C:\Users\lucid\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\whisper\__init__.py:150: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  checkpoint = torch.load(fp, map_location=device)
-C:\Users\lucid\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\whisper\transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-Ein Fehler ist aufgetreten: [WinError 2] The system cannot find the file specified
-PS C:\Users\lucid\Desktop\Whisper> 
-
-Output beim Versuch den Fehler zu beheben:
-
-PS C:\Users\lucid\Desktop\Whisper> ffmpeg -version
-ffmpeg : The term 'ffmpeg' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct 
-and try again.
-At line:1 char:1
-+ ffmpeg -version
-+ ~~~~~~
-    + CategoryInfo          : ObjectNotFound: (ffmpeg:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
-
-Day 2: Also, es braucht irgendwas mit [torch], damit das Whisper die GPU benutzt und ein bisschen schneller laufen kann. Das war im Urpsrungscode auch nicht drin. Das haben wir jetzt mal verbessert. Hoffnung ist, dass es jetzt also ein bisschen fixer funktioniert. Ausserdem wurde der Weg zu FFmpeg auch ins System und nicht nur dem User eingefügt, vielleicht hilft das auch. 
+**Day 2:** Also, es braucht irgendwas mit [torch], damit das Whisper die GPU benutzt und ein bisschen schneller laufen kann. Das war im Urpsrungscode auch nicht drin. Das haben wir jetzt mal verbessert. Hoffnung ist, dass es jetzt also ein bisschen fixer funktioniert. Ausserdem wurde der Weg zu FFmpeg auch ins System und nicht nur dem User eingefügt, vielleicht hilft das auch. 
 Wir haben ein erstes Ergebnis! Und das passt einigermaßen gut zu dem, was ich bisher übersetzt habe.
 
 GPU funktioniert nicht, weil pyTorch mit CUDA Uterstützung auf Python 3.11 nicht funktioniert. Aber bevor Python jetzt irgendwie wild installiert wird, würde ich vorschlagen. dass erstmal die CPU benutzt wird, weil so super langsam war das gar nicht.
@@ -150,7 +109,7 @@ Plan: [turbo] über GPU laufen lassen --> weniger als 1 Minute. Wir behalten Tur
 
 Fixes update: ich hab irgendwie mist beim updaten gemacht (i kinda knew that) und jetzt muss ich mich morgen mal hierum kümmern. Es kommen aber noch knapp 15 Minuten auf meine arbeitszeit drauf. :D
 
-Day 3: Learning: Gewisse Dinge sind case sensitive. Ich habe im Skrpit zur Listentranskription wma zu WMA geändert und jetzt werden meine 51 Berichte transkribiert. Und das sogar ziemlich fix.
+**Day 3:** Learning: Gewisse Dinge sind case sensitive. Ich habe im Skrpit zur Listentranskription wma zu WMA geändert und jetzt werden meine 51 Berichte transkribiert. Und das sogar ziemlich fix.
 Reflektion: Es hieß mal, dass Repos oder sowas in OneDrive Ordnern schwierig sind. Wenn das später also alles online läuft, ist die Frage, wie lange das gut geht. Es sollte nur einfach an einer Stelle festgehalten sein, denn wenn Fehler auftreten, könnte das eine Anlaufstelle zum Troubleshooting sein.
 Neue Erkenntnis: Ein fast autonomes Laufen des Skriptes sollte gehen. Genauer finde ich das noch raus, das ist aktuell ja irgendwie nicht der Plan. Oder halt für später.
 
@@ -158,14 +117,13 @@ To Do:
 [x] Listwise Skript wieder verallgemeinern bzw. abändern. Die Konvertierung brauch es ja auch nicht für alle Fälle. --> Wobei sie vermutlich auchnicht schadet. Also nochmal checken, das kann eigentlich drin bleiben.
 [x] Ausprobieren, wie das funktioniert, wenn die Sprache gemischt ist. 
 [] Erkennen der Sprechenden wäre noch ordentlich cool. ChatGPT sagt hierzu: Sprecherkennung (rudimentär):
-
-Leider bietet Whisper keine eingebaute Funktion zur Speaker Diarization. Wenn du wirklich die Sprecher zuordnen möchtest, müsstest du eine zusätzliche Bibliothek wie pyannote.audio verwenden, die die Sprecher anhand von Audiointervallen erkennt. Hier ist eine einfache Methode zur Trennung der Sprecher in einem rudimentären Format:
-Es gibt keine direkte Möglichkeit in diesem Code, zwischen den Sprechern zu unterscheiden, ohne eine separate Speaker-Diarization-Lösung zu verwenden.
-Für eine echte Sprecherzuordnung müsste man nach der Transkription die Pausen und Sprecherwechsel zwischen den Sätzen auswerten und dann manuell oder automatisch Speaker 1 und Speaker 2 zuweisen. Diese Funktionalität würde jedoch zusätzliche Bibliotheken und deutlich mehr Komplexität erfordern. --> Demnach wäre das ein längerfristiges Ziel.
-
 [x] Übersetzungen.
 [] Rausfinden, wie Zürich es geschafft hat, dass Mundart gekonnt wird.
 [x] Allgemein rausfinden, wie sich Whisper trainieren lässt. --> bisschen schwierig, eigentlich gar nicht.
+
+Zur Erkennung von sprechenden sagt ChatGPT: Leider bietet Whisper keine eingebaute Funktion zur Speaker Diarization. Wenn du wirklich die Sprecher zuordnen möchtest, müsstest du eine zusätzliche Bibliothek wie pyannote.audio verwenden, die die Sprecher anhand von Audiointervallen erkennt. Hier ist eine einfache Methode zur Trennung der Sprecher in einem rudimentären Format:
+Es gibt keine direkte Möglichkeit in diesem Code, zwischen den Sprechern zu unterscheiden, ohne eine separate Speaker-Diarization-Lösung zu verwenden.
+Für eine echte Sprecherzuordnung müsste man nach der Transkription die Pausen und Sprecherwechsel zwischen den Sätzen auswerten und dann manuell oder automatisch Speaker 1 und Speaker 2 zuweisen. Diese Funktionalität würde jedoch zusätzliche Bibliotheken und deutlich mehr Komplexität erfordern. --> Demnach wäre das ein längerfristiges Ziel.
 
 Weitere Überlegung: Wenn der PC das automatisch Abrufen soll, dann geht vermutlich nur 1 Skript? Über die Logisitk mache ich mir zu einem anderen Zeitpunkt nochmal Gedanken.
 Interessanter Turn: Es ist anscheinend eine Übersetzung in meinem MIX-Transkript drin, die da Überhaupt nicht hinsoll. 
@@ -184,13 +142,9 @@ Das bedeutet:
 
 Chunks werden erstmal auf 30s gesetzt. Frage ist, ob das zu lang ist? --> Ergebnis: Das mit den Chinks und den Sprachen funktioniert gut. Aber sie wären definitiv zu lang. Kürzere Chunks wären mehr Rechenarbeit, aber da das aktuell noch schnell funktioniert, denke ich, ist das ein sehr akzeptabler trade-off.
 
-FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  checkpoint = torch.load(fp, map_location=device)
-  --> Irgendwann sollte ich diese Meldung mal nachschauen und gucken, ob das relevant ist für mich. 
-
 Aktuell versuchen wir mehrsprachige Transkription meherer Datein (N=11), Chunks = 10s, Modell = large. Dauer: ca. 7 - 8 Minuten.
 
-Day 4: Aktuell prüfen glaube ich nur die Skripte für die Listen-Transkriptionen auf eine GPU. Ich finde das aber okay bzw. würde das auch nicht in den anderen Codes nicht einbauen, weil diese 1. aktuell noch mit dem [turbo] Modell arbeiten, welches weniger Leistung braucht als das [large] Modell und daher zur Not auch über die CPU laufen kann. Das heißt, zumindest dem status-quo am 5.2 nach würde ich sagen, würde sowas den Code nur unnötig unübersichtlich machen. Ich halte es aber nicht für unmöglich, dass ich meine Meinung diesbezüglich nochmal ändere.
+**Day 4:** Aktuell prüfen glaube ich nur die Skripte für die Listen-Transkriptionen auf eine GPU. Ich finde das aber okay bzw. würde das auch nicht in den anderen Codes nicht einbauen, weil diese 1. aktuell noch mit dem [turbo] Modell arbeiten, welches weniger Leistung braucht als das [large] Modell und daher zur Not auch über die CPU laufen kann. Das heißt, zumindest dem status-quo am 5.2 nach würde ich sagen, würde sowas den Code nur unnötig unübersichtlich machen. Ich halte es aber nicht für unmöglich, dass ich meine Meinung diesbezüglich nochmal ändere.
 Ich sollte ggf. schauen, dass alles, was mit MIX läuft, über [large] funktioniert? --> Ich könnte die Skripte auch dann so anpassen, dass der Durchlauf nicht stattfindet, wenn keine GPU gefunden wird. Das könnte davor schützen, dass der PC sich einer enormen Belastung der CPU unterzieht.
 
 Um das mit den Übersetzungen zu starten, habe ich direkt mal das mit den spezifischen Skripten probiert (um das Deutsche Transkript zu haben) und das funktioniert. Das läuft soweit.
