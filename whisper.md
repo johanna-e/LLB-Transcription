@@ -22,7 +22,14 @@ Plan für "away from lab pc": diese Dokumentation aufräumen, Bild für README g
 05.02.: 11:00 - 14:00 // 14.30 / 70h
 Plan für heute: Sollte ich zuerst meine Doku sortieren? Ich glaube nicht. Es fühlt sich auch nach verschwendeter oder zumindest nicht korrekt genutzter Arbeitszeit an, wenn ich an einer ordentlichen Dokumentation sitze anstatt an etwas tatächlich inhaltlichen.
 Ziel ist nach wie vor:
-[] einmal alle Skripte haben --> das wäre liste/einzeln, DE/EN/MIX und Übersetzung (ich glaube das sollte automatisch auswählen ob von DE zu EN oder andersrum, aber wenn es spezifiziert genauer ist, machen wir auch das.)
+[x] einmal alle Skripte haben --> das wäre liste/einzeln, DE/EN/MIX und Übersetzung (ich glaube das sollte automatisch auswählen ob von DE zu EN oder andersrum, aber wenn es spezifiziert genauer ist, machen wir auch das.)
+
+10.01: 15:30 - 16:00 // 15.00 / 70h
+--> Leider einfach nur kleine Bugfixes im Labor.
+
+13.03: 15:00 - 18:00 // 18.00 / 70h
+Plan für heute: Tutorial schreiben, sodass mehrere Personen den Schmarrn bedienen können.
+--> Tutorial wurde geschrieben. Die Bilder spezifisch für den Lab-PC fehlen noch, genauso wie einige Details (diese sind aber festgehalten innerhalb des Tutorials).
 
 ## Ressourcen:
 Website: https://openai.com/index/whisper/
@@ -116,7 +123,7 @@ Neue Erkenntnis: Ein fast autonomes Laufen des Skriptes sollte gehen. Genauer fi
 To Do: 
 [x] Listwise Skript wieder verallgemeinern bzw. abändern. Die Konvertierung brauch es ja auch nicht für alle Fälle. --> Wobei sie vermutlich auchnicht schadet. Also nochmal checken, das kann eigentlich drin bleiben.
 [x] Ausprobieren, wie das funktioniert, wenn die Sprache gemischt ist. 
-[] Erkennen der Sprechenden wäre noch ordentlich cool. ChatGPT sagt hierzu: Sprecherkennung (rudimentär):
+[] Erkennen der Sprechenden wäre noch ordentlich cool. ChatGPT sagt hierzu: Sprecherkennung (rudimentär).
 [x] Übersetzungen.
 [] Rausfinden, wie Zürich es geschafft hat, dass Mundart gekonnt wird.
 [x] Allgemein rausfinden, wie sich Whisper trainieren lässt. --> bisschen schwierig, eigentlich gar nicht.
@@ -152,19 +159,32 @@ Um das mit den Übersetzungen zu starten, habe ich direkt mal das mit den spezif
 Also, Übersetzungen mit Whisper sind echt nicht so ganz das Wahre. Und irgendwie vielleicht auch sinnlos vor dem Hintergrund, dass am ehesten ja schon der konvertierte Bericht übersetzt werden sollte. Ich denke, es ist mäßig hilfreich, das Skript trotzdem zu haben, aber ich halte es für eine eher wenig sinnige Lösung für Übersetzungen. Das ist also etwas, was gegen Ende angegangen wird; anhand eines anderen Tools.  
 
 
+
 ### To-Do's für 5.02
 [x] one_DE Skript --> + Sätze in einzelnen Zeilen in Output in DE und EN, MIX hatte das schon  
 [x] list_EN Skript  
 [x] spezifische Transkription  
 [x] translate_to_DE  --> DE und EN unterscheiden sich im Skript nicht, tun sie wohl :'D Aber da die Übersetzung echt nur so mittelmäßig ist, würde ich an dieser Stelle mal nicht weiterarbeiten.  
 [x] translate_to_EN  
-[] ggf. anfangen ein Tutorial zu schreiben.
+[x] ggf. anfangen ein Tutorial zu schreiben. --> 13.02
+
+**Day 7:**
+Tutorial schreiben. Es ist etwas seltsam ein Tutorial zu schreiben für eine Version, die nicht die finale sein soll. Aber es muss ja auch funktionieren.
+Ich sollte defininitv dran denken, dass Bilder in das Tutorial eingefügt werden, also auch Bilder, die ich nicht von daheim aus bereitstellen kann!
+
+- Sollte ich einen zweiten Branch erstellen für die Aktivitäten im Sleeplab? Das könnte alles im Endeffekt dann deutlich weniger chaotisch machen?
+
+
 
 ### To-Do's im Prozess
 [] Modellentscheidung überdenken, aktuell schein [large] auch ganz gut zu funktionieren  
 [] Sprache im Code anpassen --> Kommentare, Überschrift Ausgabedatei  
 [] Skripte allgemein überarbeiten und bereinigen --> durch das ständige Benutzen (ohne zu genaues Gegenchecken meinerseits) von ChatGPT sind die Skripte unfasssbar unterschiedlich. Das braucht es irgendwie nicht.  
 [] Ich glaube ich sollte für das Repo auch noch ein Dokument aufsetzten, was erklärt, warum die Skripte so sind, wie sie sind? Also das, was ich hier mache, nur besser?
+[] Bilder in Tutorial einfügen
+[] Abchecken, ob das Tutorial auch tatsächlich den Laborbedingungen folgt. 
+[] Alle Kommentare in den Skripten auf Englisch ändern.
+[] README anpassen --> Verlinkung der Skripte und Tutorial.
 
 **Feststellung**
 Erster Versuch Übersetzung gescheitert, weil Whisper nicht mit Word-Dateien arbeitet, sondern nur mit Audio, das ergibt ja Sinn. Also stellt sich jetzt die Frage: entweder also suche ich mir was, das mit Word zusammenarbeitet oder ich lasse die Audio direkt übersetzen. Frage ist, was besser - also akkurater - funktioniert. Also: da ich mein Hauptprojekt Whisper und die Transkriptionen sind, machen wir die Übersetzungen auch vorerst mit Whisper. Für höhere Genauigkeit sind andere Tools (MariamMT [Vorschlag ChatGPT, ich sollte mal PyPi checken]) besser. Das ist also ein tertiäres Ziel.
@@ -176,7 +196,7 @@ Erster Versuch Übersetzung gescheitert, weil Whisper nicht mit Word-Dateien arb
 
 Zwischenfrage: Aktuell wird nur immer die neuste Audio oder eben ein ganzer Ordner transkribiert. Wenn ich allerdings eine spezifische hab, müsste ich das ganze noch anpassen. Frage ist, ob ich dafür auch ein eigenes Skript brauche, oder ob ich sowas ins Tutorial (aber ansonsten "one" umbenennen in "new" [dann wird das neuste immer genommen] und das skript, wo eine gezielte verwendet wird, dann "one" nennen) --> ich habe mich für "spec" = specific entschieden, da "new" irgendwie gefühlt etwas missverständlich wäre. Weil jede zu erstellende Transkription ist ja irgendwie neu. Das wäre noch eine vernünftige Idee. Meine Sorge an der Stelle ist, dass es zu "simpel" ist und alle Leute, die so voll im Game drin sind, meine Ansätze peinlich finden, weil es sich auch einfacher lösen ließe. Aber das wäre dann eben so, würde ich sagen.
 
-Jetzt fällt mir auch ein: Was wäre, wenn ich ein Skript hääte, was folgendes kann:
+Jetzt fällt mir auch ein: Was wäre, wenn ich ein Skript hätte, was folgendes kann:
 - es fragt, was gemacht werden soll (Transkription von welcher Sprache [EN, DE, MIX], one/list/new, Übersetzung)
 - fragt nach input/output folder
 - ggf. nach namen der Audiodate (if "one")
