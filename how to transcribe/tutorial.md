@@ -121,13 +121,16 @@ Therefore the last steps should be:
    &rarr; As of now, speaker identification does not work. So you'll have to add yourself (the first letter of your name, e.g. "E" for Emma) and the participant (VP) to the script to be able to differentiate which sentences were spoken by either you or the participant.
 5. Save the changes and add data wherever you were instructed to. 
 
-## Troubleshooting
-This whole transcription-tool was set up by someone who is rather new to programming. So if you're running into errors, feel free to blame me instead of yourself.
-Below is a little section to fix mistakes that could be somewhat common. 
-If you are still helpless or simply do not want to get mixed-up with this whole programming-thing (which I absolutely get), just feel free to text me (Johanna, my number should be in the sleeplab group-chat on Signal) or send me an E-Mail via johanna.heitmann@students.unibe.ch. I'll see that I can fix whatever went wrong quickly.
-
 
 ## Specific (`spec`) Transcription
 The transcription of specific audio files is not much different, than any other transcription.
 Built into the script is a message asking you to enter the name of your file, including the correct file extension. This message will also appear in the terminal. As soon as this message pops up, you can enter the name of your file. To avoid any mistakes, it could be best to just copy and paste it.
 This script also contains feedback-messages, so it will let you know whether or not your file was found in your `input-folder`.
+
+## Increase accuracy or speed of the transcription
+**ADD Model info**
+
+
+## Troubleshooting
+This whole transcription-tool was set up by someone who is rather new to programming. So if you're running into errors, feel free to blame me instead of yourself.
+If anything goes wrong or you run into error messages, that don't seem to make any sense, just feel free to text me (Johanna, my number should be in the sleeplab group-chat on Signal) or send me an E-Mail via johanna.heitmann@students.unibe.ch. I'll see that I can fix whatever went wrong quickly.
