@@ -25,7 +25,7 @@ else:
 
 # Ordnerpfade
 input_folder = "Traumberichte_Audio"
-output_folder = "Traumberichte_Transkript"
+output_folder = "Traumberichte_Transkript_2"
 
 # Versuche, alle Audiodateien im Ordner zu holen
 try:
