@@ -32,6 +32,7 @@ Ziel ist nach wie vor:
 13.03: 15:00 - 18:00 // 18.00 / 70h
 Plan für heute: Tutorial schreiben, sodass mehrere Personen den Schmarrn bedienen können.
 --> Tutorial wurde geschrieben. Die Bilder spezifisch für den Lab-PC fehlen noch, genauso wie einige Details (diese sind aber festgehalten innerhalb des Tutorials).
+--> Whisper auf Büro PC einrichten. 
 
 ## Ressourcen:
 Website: https://openai.com/index/whisper/
@@ -176,7 +177,15 @@ Ich sollte defininitv dran denken, dass Bilder in das Tutorial eingefügt werden
 
 - Sollte ich einen zweiten Branch erstellen für die Aktivitäten im Sleeplab? Das könnte alles im Endeffekt dann deutlich weniger chaotisch machen?
 
+**Day 8:**
+Whisper auf dem Büro PC einrichten; das sollte den Workflow gewissermaßen vereinfachen. 
+Überlegung: Für den Büro-PC wird dann ein Branch erstellt, auf dem nur die Transkriptionen stattfinden. Da muss ja nichts gepusht oder gepullt werden, der muss ja eigentlich nur so laufen. 
+Also, plottwist, ich kann noch nicht am Büro-PC arbeiten, da ich dort in VS Code Änderungen an Nicolas Arbeit vornehmen müsste (die er nicht gespeichert hat) und ich würde ungern irgendwo reinfunken. Also marawa nüscht.
+Dann bleibts beim ursprünglichen Plan, das Tutorial erstmal so fertig zu stellen. Und ggf. hier nochmal mehr Ordnung reinzubringen.
 
+--> Ich könnte als nächstes dann mal schauen, was aktuell der Status quo ist und ob ich nicht doch auf das [large] Modell komplett umsteige. Außerdem würde ich eigentlich gerne, wenn ich schon mit [large] arbeite, eine Unterbrechung des Vorganges einbauen, wenn keine GPU gefunden wird. Oder halt, dass, wenn keine GPU gefunden wird, nicht mit [large] sondern mit [turbo] weiter transkribiert wird. Ich denke, dass könnte ganz gut in Sachen Prävention von unnötiger Rechenleistung sein.
+
+--> Ich glaube eines meiner langfristigen Ziele könnte sein, dass das Repo deklariert und auch so zu benutzen ist, dass es keinen Anspruch erhebt darauf, in einer hohen Klasse des Programmierens unterwegs zu sein, sondern vielmehr, dass es direkt umgesetzt werden kann, auch von Personen, die keine Erfahrung haben mit Programmieren (so wie ich). Dafür bräuchte es eben ein Code Beispiel bezüglich zu: wie wird Whisper quasi installiert.
 
 ### To-Do's im Prozess
 [] Modellentscheidung überdenken, aktuell schein [large] auch ganz gut zu funktionieren  
@@ -185,8 +194,8 @@ Ich sollte defininitv dran denken, dass Bilder in das Tutorial eingefügt werden
 [] Ich glaube ich sollte für das Repo auch noch ein Dokument aufsetzten, was erklärt, warum die Skripte so sind, wie sie sind? Also das, was ich hier mache, nur besser?
 [] Bilder in Tutorial einfügen
 [] Abchecken, ob das Tutorial auch tatsächlich den Laborbedingungen folgt. 
-[] Alle Kommentare in den Skripten auf Englisch ändern.
 [] README anpassen --> Verlinkung der Skripte und Tutorial.
+
 
 **Feststellung**
 Erster Versuch Übersetzung gescheitert, weil Whisper nicht mit Word-Dateien arbeitet, sondern nur mit Audio, das ergibt ja Sinn. Also stellt sich jetzt die Frage: entweder also suche ich mir was, das mit Word zusammenarbeitet oder ich lasse die Audio direkt übersetzen. Frage ist, was besser - also akkurater - funktioniert. Also: da ich mein Hauptprojekt Whisper und die Transkriptionen sind, machen wir die Übersetzungen auch vorerst mit Whisper. Für höhere Genauigkeit sind andere Tools (MariamMT [Vorschlag ChatGPT, ich sollte mal PyPi checken]) besser. Das ist also ein tertiäres Ziel.
