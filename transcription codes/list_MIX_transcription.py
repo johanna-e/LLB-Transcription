@@ -1,4 +1,4 @@
-# Skript um mehrere Audiodatei zu transkribieren
+# Transcribe multiple, multilingual audio files
 
 import os
 import whisper
@@ -6,7 +6,9 @@ import torch
 from docx import Document
 import numpy as np
 
-# Prüfen, ob eine GPU verfügbar ist
+# Add check for WMA files and convert them to MP3 (if necessary)
+
+# Check if a GPU is available
 device = "cuda" if torch.cuda.is_available() else "cpu"
 if device == "cuda":
     print(f"GPU wird verwendet: {torch.cuda.get_device_name(0)}")
@@ -17,7 +19,7 @@ else:
 input_folder = "24FS_LD_MS_Audio"
 output_folder = "24FS_LD_MS_Transcript"
 
-# Whisper-Modell laden (turbo oder medium empfohlen)
+# Whisper-Modell laden
 model = whisper.load_model("large", device=device)
 
 def get_all_audio_files(folder_path):
