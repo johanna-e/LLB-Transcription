@@ -1,6 +1,5 @@
 # 70 Stunden-Projekt: Aufsetzen des Whisper-Transkriptionstools von OpenAI für das Schlaflabor
 
-this is a test
 
 27.01: 10:30 - 12:00; 12:30 - 13:15, 15:20 - 17:30 // 4.25 / 70h
 --> Recherche, aufsetzen der VS Code Umgebung, des Repos, der MD-Dokumentation und der Skripte. VR PC im Sleeplab vorbereiten für Whisper: Download VS Code, Python, FFmpeg (auch wenn das nicht funktioniert), klonen des Repos, um leichter arbeiten zu können, erster Trial-Run (which failed, but that was to be expected).
@@ -32,6 +31,8 @@ Ziel ist nach wie vor:
 13.03: 15:00 - 18:00 // 18.00 / 70h
 Plan für heute: Tutorial schreiben, sodass mehrere Personen den Schmarrn bedienen können.
 --> Tutorial wurde geschrieben. Die Bilder spezifisch für den Lab-PC fehlen noch, genauso wie einige Details (diese sind aber festgehalten innerhalb des Tutorials).
+
+
 
 ## Ressourcen:
 Website: https://openai.com/index/whisper/
