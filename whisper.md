@@ -31,7 +31,10 @@ Ziel ist nach wie vor:
 13.03: 15:00 - 18:00 // 18.00 / 70h
 Plan für heute: Tutorial schreiben, sodass mehrere Personen den Schmarrn bedienen können.
 --> Tutorial wurde geschrieben. Die Bilder spezifisch für den Lab-PC fehlen noch, genauso wie einige Details (diese sind aber festgehalten innerhalb des Tutorials).
---> Whisper auf Büro PC einrichten. 
+
+14.02: 11:30 - 15:30 // 22.00h / 70h
+--> Whisper auf Büro PC einrichten. Geht leider nicht.
+Deswegen: Tutorial fertig und Modelle (turbo vs. large) testen.
 
 
 
@@ -103,6 +106,8 @@ Das heißt, noScribe aus Luzern und das Zeug aus Zürich werden als Inspiration 
 - Die Audiodatein werden nicht im selben Ordner wie das Skript liegen, es muss also der Pfad ordentlich angegeben werden. &rarr; in diesem Kontext wäre es hilfreich, herauszufinden, ob es möglich ist, dass das Skript immer die "neuste" Audio aufgreift
 - gff. ist das mit der neusten Audio noch zu hoch gestochen resp. interessant für später. Um zu testen, ob das ganze läuft, reicht ggf. auch einfach ein "Basic Skript"
 
+
+### Tageweiser Fortschritt
 
 **Day 2:** Also, es braucht irgendwas mit [torch], damit das Whisper die GPU benutzt und ein bisschen schneller laufen kann. Das war im Urpsrungscode auch nicht drin. Das haben wir jetzt mal verbessert. Hoffnung ist, dass es jetzt also ein bisschen fixer funktioniert. Ausserdem wurde der Weg zu FFmpeg auch ins System und nicht nur dem User eingefügt, vielleicht hilft das auch. 
 Wir haben ein erstes Ergebnis! Und das passt einigermaßen gut zu dem, was ich bisher übersetzt habe.
@@ -187,6 +192,28 @@ Dann bleibts beim ursprünglichen Plan, das Tutorial erstmal so fertig zu stelle
 --> Ich könnte als nächstes dann mal schauen, was aktuell der Status quo ist und ob ich nicht doch auf das [large] Modell komplett umsteige. Außerdem würde ich eigentlich gerne, wenn ich schon mit [large] arbeite, eine Unterbrechung des Vorganges einbauen, wenn keine GPU gefunden wird. Oder halt, dass, wenn keine GPU gefunden wird, nicht mit [large] sondern mit [turbo] weiter transkribiert wird. Ich denke, dass könnte ganz gut in Sachen Prävention von unnötiger Rechenleistung sein.
 
 --> Ich glaube eines meiner langfristigen Ziele könnte sein, dass das Repo deklariert und auch so zu benutzen ist, dass es keinen Anspruch erhebt darauf, in einer hohen Klasse des Programmierens unterwegs zu sein, sondern vielmehr, dass es direkt umgesetzt werden kann, auch von Personen, die keine Erfahrung haben mit Programmieren (so wie ich). Dafür bräuchte es eben ein Code Beispiel bezüglich zu: wie wird Whisper quasi installiert.
+
+Also, das [turbo] Modell ist in folgenden Skripts:
+--> schauen, wie fix die laufen, wenn sie über [large] laufen würden und ggf. demnach umschreiben
+--> also, meine Erwartung, jetzt wo ich 51 Berichte laufen lasse ist, dass es die Zeit nicht wert ist? Außer natürlich, es dauert nicht so lang, wie erwartet. Dann wäre denke ich auch eine "längere" Zeit bezogen auf Richtigkeit oder so natürlich auch okay in Kauf zu nehmen. Ich kann auch mal ChatGPT fragen, ob es sinnvoll ist, eine Entscheidung in das Skript einzubauen?
+--> [large] wurde ja verwendet, um eine bessere Transkription bei gemischten Audiodateien hinzubekommen. Ich denke, bei listen ergibt es ehrlich gesagt ab einer gewissen Länge nur bedingt Sinn. Ich könnte aber auch einfach einen Schritt in das Tutorial einbauen, der das erklärt. Dann läuft das ganze nicht nur nach meinem Ermessen, sondern kann auch abgewandelt werden. 
+Ich sollte herausfinden, wie qualitativ unterschiedlich die sind.
+
+- list_DE --> 51 berichte hahahahaha. Also das dauert so ungefähr eine halbe Stunde (27min). Wenn das okay ist, kann mit [large] gearbeitet werden. Vergleich turbo:; ca. 9min. Ich finde jetzt mal heraus, wie deutlich die Unterschiede sind, aber das ist zumindest von der Zeit her schon eine Hausnummer.
+- list_EN
+- one_DE
+- one_EN
+- spec_De
+- spec_EN --> 18sec mit [turbo], mit [large] grob 1.16sec. Da sollte auch der Test auf Genauigkeit dann ausschlaggebend sein.
+
+[large]
+- list_MIX
+- one_MIX
+- spec_MIX
+
+**To-do's für später:** Tutorial um Modell-Infos erweitern, verschiedene Versionen gegeneinander Testen.
+
+
 
 ### To-Do's im Prozess
 [] Modellentscheidung überdenken, aktuell schein [large] auch ganz gut zu funktionieren  
