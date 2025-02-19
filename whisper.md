@@ -32,10 +32,15 @@ Ziel ist nach wie vor:
 Plan für heute: Tutorial schreiben, sodass mehrere Personen den Schmarrn bedienen können.
 --> Tutorial wurde geschrieben. Die Bilder spezifisch für den Lab-PC fehlen noch, genauso wie einige Details (diese sind aber festgehalten innerhalb des Tutorials).
 
-14.02: 11:30 - 15:30 // 22.00h / 70h
+14.02: 11:30 - 15:30 // 22.00 / 70h
 --> Whisper auf Büro PC einrichten. Geht leider nicht.
 Deswegen: Tutorial fertig und Modelle (turbo vs. large) testen.
 
+18.02: 11:00 - 13:00 // 24.00 / 70h
+--> Arbeit an einem anderen Transkriptionsprojekt, welches aber diverse Learnings ermöglicht hat (s.u.)
+
+19.02: 11:15 - 11:55 //
+Update, Modelle gegeneinander testen
 
 
 ## Ressourcen:
@@ -213,7 +218,27 @@ Ich sollte herausfinden, wie qualitativ unterschiedlich die sind.
 
 **To-do's für später:** Tutorial um Modell-Infos erweitern, verschiedene Versionen gegeneinander Testen.
 
+**Day 9:**
+- Mein Skript benutzt und umgeschrieben für die BA eines Kommilitonen. So habe ich herausgefunden, dass sich die command-line mit result=model.transcribe() noch erweitern und spezifizieren lässt --> interessant für lange Sätze. Ich sollte also mal mich mit temperature() und beam_size() auseinandersetzen, herausfinden, was genau das ist und, ob es noch weitere Dinge in die Richtung gibt, die interessant für mich wären
+- [large] ist nicht das aktuellste größte Modell, es gibt [large-v3], das sollte ich definitiv implementieren
+- das Exportieren nach Excel funktioniert auch sehr wunderbar, das wäre also auch schon möglich. 
+- auch das mit den Zeitstempeln ist echt interessant; für sleeplab Zwecke ggf. weniger, aber trotzdem sehr interessant
+- ich denke Sprechererkennung sollte nach wie vor möglich sein, aber das ggf. erst deutlich später, weil das schon mit einiges an Aufwand verknüpft zu sein scheint
+- es ist möglich, dass Bestätigungsmails gesendet werden, sobald die Geschichte fertig ist
 
+--> es stellt sich übrigens auch raus, dass ich verschiedene Python Versionen habe (ich glaub das war aufgrund von torch oder so). Das ist per se kein Problem, aber es ist etwas messy und ich sollte definitiv aufpassen, dass mir das am Büro-PC nicht passiert
+
+**Day 10**
+- also, ich habe ein Skript laufen lassen, um die beiden Texte zu vergleichen (also turbo und large) und anscheinend unterscheiden sie sich stark. Heißt, ich lasse sie jetzt mal gegen meine eigene Transkription laufen und gucke, was besser ist
+- [large] & JH : Distanz und Fehlerquote geringer
+- [turbo] & JH : Distanz deutlich geriner, Wortfehlerquote auch.
+
+--> also erstmal [turbo]
+
+### Neudefinition Hauptziel
+1. One Script to rule them all. 
+&rarr; in dem Sinne, das ein Skript alle möglichen Transkriptionen anfertigt. Es wird gefragt, was gemacht werden soll und dann macht das Skript das automatisch. 
+2. Eine Appliikation, die ein besseres GUI hat als VS Code.
 
 ### To-Do's im Prozess
 [] Modellentscheidung überdenken, aktuell schein [large] auch ganz gut zu funktionieren  
