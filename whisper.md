@@ -45,6 +45,10 @@ Update, Modelle gegeneinander testen
 05.05: 14:45 - 15:15 // 25.15 / 70h
 Meine Skripte gegen noScribe testen, wenn noScribe deutlich besser, dann 70h Projekt so umstrukturieren, dass das primäre Ziel ist, eine Pipeline aufzusetzen, die die Tranksription einfach durchlaufen lässt.
 
+06.05: 13:00 - 17:00 // 29.15 / 70h
+Installation noScribe auf dem LabPC
+
+
 
 ## Ressourcen:
 Website: https://openai.com/index/whisper/
@@ -177,7 +181,7 @@ Also, Übersetzungen mit Whisper sind echt nicht so ganz das Wahre. Und irgendwi
 
 
 
-### To-Do's für 5.02
+**To-Do's für 5.02**
 [x] one_DE Skript --> + Sätze in einzelnen Zeilen in Output in DE und EN, MIX hatte das schon  
 [x] list_EN Skript  
 [x] spezifische Transkription  
@@ -253,6 +257,37 @@ Also die nächsten Schritte sind:
 --> Wird durchgeführt und das Ergebnis wird ehrlich gesagt am besten direkt in Excel gespeichert --> alternativ in einem Word-Dokument, das für alle zugänglich ist und welches dann überarbeitet und in die Excel übersicht eingefügt werden kann. noScribe ermöglicht es zwar, dass in der Anwendung selbst das Transkript zu bearbeiten, aber ich denke das ergibt für unsere Zwecke weniger Sinn. 
 
 ABER: noScribe kann ggf. keine Übersetzungen, das heißt ich kann womöglich hierzu noch etwas machen.
+
+**Day 12**
+Wir installieren noScribe jetzt mal auf dem LaborPC
+Allgemeine Überlegung: Ich könnte dem Dude von noScribe auch mal schreiben und nach Tipps fragen.
+Also noScribe braucht erstmal ewig zum installieren. Fun. Deswegen gehen wir auch erstmal mit der Version, die nicht über die GPU läuft - fun. Uff. Aber irgendwie wollte sich das auch nicht ausführen lassen. 
+
+Also, for the record: die "kleine" Version von noScribe hat das Transkript in knapp 3min angefertigt.
+Beim Nachschauen ist meins auch schon fertif gewesen, also da geben die beiden sich nicht viel und bei noScribe ist schon die speaker Diarisation drin. 
+
+Okay, also im Vergleich mit meiner Transkription schneidet noScribe besser ab.
+Auch da ist die Wortfehlerquote hoch, aber das überrascht mich beim Schweizerdeutsch irgendwie weniger. 
+
+Also ich bin die ersten paar Zeilen auf Übereinstimmungen und Fehler durchgegangen und es würde sicherlich auch Sinn ergeben, das einmal komplett zu tun, aber aktuell ist mir das ein bisschen zu viel Aufwand. 
+Es zeigt sich schon, also auch in meiner Überprüfung, dass noScribe besser funktioniert als mein Skript. Uff.
+Aber das ist okay, Kai Dröge von noScribe hat auch einen Hintergrund in Computerwissenschaft, den hab ich zum Beispiel nicht. 
+
+Aber, ich habe auch die "kleine" Version, also die ohne CUDA-Akzeleration verwendet und selbst die läuft in 3 Minuten (für 5 Minuten Audio hahaha).
+
+ABER: auch mit noScribe lässt sich der Prozess nicht uz 100% automatisieren.
+Das heißt - zumindest laut ChatGPT könnte ich den Quellcode selbst abändern, sodass meine Idee einer kompletten Automatisierung funktioniert.
+Das wäre doch mal etwas.
+
+Weil was noScribe nicht kann, ist einen ganzen Ordner zu transkribieren. Und das ist eigentlich schon noch mehr oder weniger nützlich. 
+
+Also: Tutorial schreiben und die Geschichte auf dem Büro PC installieren. 
+Whisper Modelle integrieren.
+
+Was ich machen kann, ist ein Skript zu schreiben, was die .txt Ausgabedatei von noScribe aufasst und entweder direkt in Excel überführt oder eben in eine Word-Datei. Aber ich glaube, das wäre zumindest einfacher zu bearbeiten.
+Frage ist, wie viel Sinn das ergibt? Weil theoretisch können die Personen ja direkt Veränderungen im Editor vornehmen. Schwierig. 
+
+Ich könnte testen, ob einzelne Sprachen + mix besser funktionieren als die multilinguale Option.
 
 ### Neudefinition Hauptziel
 1. One Script to rule them all. 
