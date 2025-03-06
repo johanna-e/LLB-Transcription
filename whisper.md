@@ -39,8 +39,11 @@ Deswegen: Tutorial fertig und Modelle (turbo vs. large) testen.
 18.02: 11:00 - 13:00 // 24.00 / 70h
 --> Arbeit an einem anderen Transkriptionsprojekt, welches aber diverse Learnings ermöglicht hat (s.u.)
 
-19.02: 11:15 - 11:55 //
+19.02: 11:15 - 12:00 // 24.45 / 70h
 Update, Modelle gegeneinander testen
+
+05.05: 14:45 - 15:15 // 25.15 / 70h
+Meine Skripte gegen noScribe testen, wenn noScribe deutlich besser, dann 70h Projekt so umstrukturieren, dass das primäre Ziel ist, eine Pipeline aufzusetzen, die die Tranksription einfach durchlaufen lässt.
 
 
 ## Ressourcen:
@@ -235,6 +238,22 @@ Ich sollte herausfinden, wie qualitativ unterschiedlich die sind.
 
 --> also erstmal [turbo]
 
+**Day 11**
+Mein Ego tut schon weh, aber ich bin nunmal keine Programmiererin und ich denke, damit muss ich leben. Also lasse setze ich mal noScribe auf und schaue an einem Traumbericht, wie die von mir aufgesetzen Skripte im Vergleich abschneiden.
+Also die nächsten Schritte sind:
+1. Einlesen in und vertraut machen mit der Funktionsweise von noScribe
+2. noScribe auf dem LabPC aufsetzen
+3. einen Traumbericht von meinem Skript und von noScribe transkribieren lassen
+4. Die Ergebnisse vergleichen
+
+--> Wenn noScribe besser ist, wovon ich aktuell ausgehe:
+5. noScribe auf Emmas Büro PC aufsetzen
+6. Eine Pipeline konstruieren, die einen möglichst guten und einfachen Workflow ermöglicht
+--> Das wäre: Die Transkription wird gestartet (von wem? von wo?)
+--> Wird durchgeführt und das Ergebnis wird ehrlich gesagt am besten direkt in Excel gespeichert --> alternativ in einem Word-Dokument, das für alle zugänglich ist und welches dann überarbeitet und in die Excel übersicht eingefügt werden kann. noScribe ermöglicht es zwar, dass in der Anwendung selbst das Transkript zu bearbeiten, aber ich denke das ergibt für unsere Zwecke weniger Sinn. 
+
+ABER: noScribe kann ggf. keine Übersetzungen, das heißt ich kann womöglich hierzu noch etwas machen.
+
 ### Neudefinition Hauptziel
 1. One Script to rule them all. 
 &rarr; in dem Sinne, das ein Skript alle möglichen Transkriptionen anfertigt. Es wird gefragt, was gemacht werden soll und dann macht das Skript das automatisch. 
@@ -269,3 +288,5 @@ Jetzt fällt mir auch ein: Was wäre, wenn ich ein Skript hätte, was folgendes 
 - fragt, ob Übersetzung stattfinden soll
 --> das sollte doch bestimmt irgendwie gehen?
 --> definitiv gegen Ende, now focus Johanna
+
+
